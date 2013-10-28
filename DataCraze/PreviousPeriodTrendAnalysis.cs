@@ -22,7 +22,10 @@ namespace DataCraze
         public ITrendReturn GenerateTrend(IEnumerable<double?> xData, IEnumerable<double?> yData)
         {
             if (null == xData)
-                throw new ArgumentNullException("xData");           
+                throw new ArgumentNullException("xData");
+            if (null == yData)
+                throw new ArgumentNullException("yData");
+
             var xDataCount = xData.Count();
 
             if (xDataCount != yData.Count())
