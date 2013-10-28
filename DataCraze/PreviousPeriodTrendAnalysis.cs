@@ -23,8 +23,16 @@ namespace DataCraze
         {
             if (null == xData)
                 throw new ArgumentNullException("xData");           
-            if (xData.Count() != yData.Count())
+            var xDataCount = xData.Count();
+
+            if (xDataCount != yData.Count())
                 throw new ArgumentException("xData and yData must contain the same number of elements");
+
+            // one or no elements give it no change
+            if (xDataCount < 2)
+            {
+                return _factory.Create(0);
+            }
 
             return _factory.Create(xData.Last() - xData.Reverse().Skip(1).First());
         }

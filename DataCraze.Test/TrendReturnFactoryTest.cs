@@ -70,5 +70,18 @@ namespace DataCraze.Test
             Assert.AreEqual(buffer, actual.Buffer);
             Assert.AreEqual(value, actual.Impact);
         }
+
+        [TestMethod]
+        public void TrendNoChangeNulLValueTest()
+        {
+            const double buffer = 0d;
+            var factory = new TrendReturnFactory(buffer);
+            var expected = TrendType.NoChange;
+            double? value = null;
+            var actual = factory.Create(value);
+            Assert.AreEqual(expected, actual.Trend);
+            Assert.AreEqual(buffer, actual.Buffer);
+            Assert.AreEqual(value, actual.Impact);
+        }
     }
 }
