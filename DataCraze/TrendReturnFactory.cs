@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataCraze.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,7 @@ namespace DataCraze
         public TrendReturnFactory()
         {
             // read from config for buffer;
+            _buffer = TrendReturnSection.GetSection().Buffer;
         }
 
         /// <summary>
