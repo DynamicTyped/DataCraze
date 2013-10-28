@@ -13,13 +13,14 @@ namespace DataCraze
     /// </summary>
     public class TrendReturnFactory : ITrendReturnFactory
     {
-        private double _buffer = 0d;
+        private double _buffer;
+
         public ITrendReturn Create(double? value)
         {
             TrendType trend = TrendType.NoChange;
             if (value > _buffer)
                 trend = TrendType.Up;
-            if (value < _buffer)
+            if (value < 0 - _buffer)
                 trend = TrendType.Down;
             if (value == null)
                 trend = TrendType.NoChange;
@@ -33,7 +34,12 @@ namespace DataCraze
         public TrendReturnFactory()
         {
             // read from config for buffer;
-            _buffer = TrendReturnSection.GetSection().Buffer;
+            var buffer = TrendReturnSection.GetSection().Buffer;
+
+            if (buffer < 0d)
+                throw new ArgumentOutOfRangeException("Buffer must be 0 or greater");
+
+            _buffer = buffer;
         }
 
         /// <summary>
