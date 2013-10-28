@@ -15,6 +15,7 @@ namespace DataCraze
     {
         private double _buffer;
 
+        internal double Buffer { get { return _buffer; } }
         public ITrendReturn Create(double? value)
         {
             TrendType trend = TrendType.NoChange;

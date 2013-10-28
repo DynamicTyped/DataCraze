@@ -83,5 +83,13 @@ namespace DataCraze.Test
             Assert.AreEqual(buffer, actual.Buffer);
             Assert.AreEqual(value, actual.Impact);
         }
+
+        [TestMethod]
+        public void CreateTest()
+        {
+            const double expected = .2d;
+            var factory = new TrendReturnFactory();
+            Assert.AreEqual(expected, factory.Buffer);
+        }
     }
 }

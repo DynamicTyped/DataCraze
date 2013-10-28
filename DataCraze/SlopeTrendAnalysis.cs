@@ -12,7 +12,7 @@ namespace DataCraze
     public class SlopeTrendAnalysis : ITrendAnalysis
     {
         private ITrendReturnFactory _factory;
-
+        internal ITrendReturnFactory Factory { get { return _factory; } }
         /// <summary>
         /// Generates the trend direction based on the same logic as Excel's slope function
         /// </summary>

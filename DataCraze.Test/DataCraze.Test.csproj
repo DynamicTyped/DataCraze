@@ -54,11 +54,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="SlopTrendAnalysisTest.cs" />
     <Compile Include="TrendReturnSectionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrendReturnFactoryTest.cs" />
     <Compile Include="PreviousPeriodTrendAnalysisTest.cs" />
-    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
